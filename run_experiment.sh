@@ -15,10 +15,11 @@ OUTDIR=runs/$TAG/$TIMESTAMP
 mkdir -p $OUTDIR
 
 #copy code over (could also use a git hash or something)
-cp coin.py $OUTDIR
-echo "python coin.py -o $OUTDIR" > $OUTDIR/commands.txt
-
-python coin.py -o $OUTDIR
+cp primeplot.py $OUTDIR
+# Store command in variable so that output to commands.txt matches actual command always
+COMMAND="python primeplot.py -o $OUTDIR"
+echo $COMMAND > $OUTDIR/commands.txt
+$COMMAND
 
 #keep most recent run in a special place
 mkdir -p runs/recent/
