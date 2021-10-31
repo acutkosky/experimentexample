@@ -7,5 +7,5 @@ paper: paper.tex runs/recent/probfig.png
 	pdflatex paper
 
 clean: 
-	rm -f *.aux *.blg *.bbl *.log *.bcf
+	rm -f *.aux *.blg *.bbl *.log *.bcf *.run.xml
 
