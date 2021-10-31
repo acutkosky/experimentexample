@@ -15,12 +15,11 @@ TAG=${1:-MISSINGTAG}
 OUTDIR=runs/$TAG/$TIMESTAMP
 mkdir -p $OUTDIR
 
-#copy code over (could also use a git hash or something)
 cp primeplot.py $OUTDIR
-# Store command in variable so that output to commands.txt matches actual command always
 COMMAND="python primeplot.py -o $OUTDIR"
 echo $COMMAND > $OUTDIR/commands.txt
 $COMMAND
+
 
 #keep most recent run in a special place for easier access (only reasonable if you don't produce a ton of data)
 mkdir -p runs/recent/
