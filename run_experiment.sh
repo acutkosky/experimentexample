@@ -5,6 +5,7 @@ TIMESTAMP=$(date +%m-%d-%Y_%H-%M-%S)
 
 # First argument provided by the user is a "TAG" value
 # to help identify the experiment later.
+# Defaults to MISSINGTAG if no tag is supplied.
 TAG=${1:-MISSINGTAG}
 
 
@@ -21,7 +22,8 @@ COMMAND="python primeplot.py -o $OUTDIR"
 echo $COMMAND > $OUTDIR/commands.txt
 $COMMAND
 
-#keep most recent run in a special place
+#keep most recent run in a special place for easier access (only reasonable if you don't produce a ton of data)
 mkdir -p runs/recent/
 cp -r $OUTDIR/* runs/recent/
+#output permanent location of most recent run's data in location.txt
 echo $OUTDIR > runs/recent/location.txt
