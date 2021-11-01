@@ -9,3 +9,22 @@ paper: paper.tex runs/recent/probfig.png
 clean: 
 	rm -f *.aux *.blg *.bbl *.log *.bcf *.run.xml
 
+
+
+
+# BELOW THIS LINE ARE COMMANDS TO RESTART AND SETUP DEMO
+# THEY WOULD NOT BE PART OF A REAL PROJECT
+
+
+
+restartdemo: clean
+	rm -rf primesenv
+	rm -rf runs
+	rm paper.pdf
+	git checkout firstplot
+
+makeplot:
+	git checkout main
+	bash run_experiment.sh log_with_confidence
+
+rundemo: makeplot paper clean
