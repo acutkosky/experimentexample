@@ -21,6 +21,7 @@ restartdemo: clean
 	rm -rf primesenv
 	rm -rf runs
 	rm -f paper.pdf
+	rm -f probfig.png
 	git checkout firstplot
 
 makeplot:
