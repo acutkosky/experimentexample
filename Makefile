@@ -20,7 +20,7 @@ clean:
 restartdemo: clean
 	rm -rf primesenv
 	rm -rf runs
-	rm paper.pdf
+	rm -f paper.pdf
 	git checkout firstplot
 
 makeplot:
