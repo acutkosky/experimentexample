@@ -4,7 +4,7 @@ import os
 from matplotlib import pyplot as plt
 
 import argparse
-parser = argparse.ArgumentParser(description='Pretrain a BERT model on genomic data.')
+parser = argparse.ArgumentParser(description='Plot density of primes.')
 parser.add_argument('--output_path', '-o', default='./', help='where to store outputs')
 parser.add_argument('--max_power', '-m', type=int, default=6)
 
@@ -13,7 +13,7 @@ def miller_rabin_prime_test(n, k=5):
     Uses miller-rabin randomized primality test to compute if n is prime.
     Will never have a false negative (if it says n is not prime, then it is not)
     Will have a false positive with probabilty at most 4^-k
-    So with k=10, we have <1000 correct answers for every mistake.  
+    So with k=10, we have <1000 correct answers for every mistake.
     '''
     n = int(n)
     # 2 and 3 are prime
@@ -36,19 +36,19 @@ def miller_rabin_prime_test(n, k=5):
         r += 1
         s //= 2
 
-    
+
     for _ in range(k):
         # We try the following procedure k times.
         # Due to some beautiful number theory, if n is not prime it will
         # detect this with probability at least 1/2.
 
         # The central observation is that n is prime if and only if
-        # the only square roots of 1 mod n are 1 and -1. 
+        # the only square roots of 1 mod n are 1 and -1.
         # Further, if n is not prime, there are at least 4 square roots of 1.
         # So we will try to guess a square root of 1 that is not 1 or -1.
 
         a = int(random.randrange(2, n-1)) # choose random number mod n other than 1 or -1.
-        x = pow(a, s, n) # raise to s^th power mod n. 
+        x = pow(a, s, n) # raise to s^th power mod n.
         # By LaGrange theorem, we now have x^(2^r) = 1 mod n.
         # Thus, x^(2^k) is a square root of n for some k <= r
 
