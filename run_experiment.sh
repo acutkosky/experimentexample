@@ -16,7 +16,7 @@ OUTDIR=runs/$TAG/$TIMESTAMP
 mkdir -p $OUTDIR
 
 cp primeplot.py $OUTDIR
-COMMAND="python primeplot.py -o $OUTDIR"
+COMMAND="python primeplot.py -o $OUTDIR > $OUTDIR/output.txt"
 echo $COMMAND > $OUTDIR/commands.txt
 $COMMAND
 
