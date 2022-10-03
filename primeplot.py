@@ -3,10 +3,6 @@ import random
 import os
 from matplotlib import pyplot as plt
 
-import argparse
-parser = argparse.ArgumentParser(description='Pretrain a BERT model on genomic data.')
-parser.add_argument('--output_path', '-o', default='./', help='where to store outputs')
-parser.add_argument('--max_power', '-m', type=int, default=6)
 
 def miller_rabin_prime_test(n, k=5):
     '''
@@ -107,4 +103,4 @@ def plot_primes(max_power, path):
 
 if __name__ == '__main__':
     args = parser.parse_args()
-    plot_primes(args.max_power, args.output_path)
+    plot_primes(6, './')
