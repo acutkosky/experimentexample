@@ -2,6 +2,7 @@
 ## ^ specified that this is a bash script.
 ## only needed if you chmod +x and invoke as ./scriptname rather than bash scriptname
 
+module load python3
 
 # get the current time. $(command) will store the output of command as a variable
 TIMESTAMP=$(date +%m-%d-%Y_%H-%M-%S)
