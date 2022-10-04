@@ -161,5 +161,7 @@ def plot_primes_log_confidence(max_power, path):
 
 
 if __name__ == '__main__':
+    print("hi")
     args = parser.parse_args()
+    print(args)
     plot_primes_log_confidence(args.max_power, args.output_path)

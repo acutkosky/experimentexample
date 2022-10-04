@@ -15,13 +15,15 @@ TAG=${1:-MISSINGTAG}
 # make a directory to hold the data.
 # The -p argument tells mkdir to create any directories it needs along the path
 # to the desired directory.
-OUTDIR=runs/$TAG/$TIMESTAMP
-mkdir -p $OUTDIR
+OUTDIR=runs/$TAG/$TIMESTAMP/
 
+
+mkdir -p $OUTDIR
 cp primeplot.py $OUTDIR
-COMMAND="python primeplot.py -o $OUTDIR > $OUTDIR/output.txt"
-echo $COMMAND > $OUTDIR/commands.txt
-$COMMAND
+COMMAND="python3 primeplot.py -o $OUTDIR > $OUTDIR/output.txt"
+echo "$COMMAND" > $OUTDIR/commands.txt
+eval "$COMMAND" # this is poor security, but probably fine in this limited case.
+
 
 
 #keep most recent run in a special place for easier access (only reasonable if you don't produce a ton of data)

@@ -22,7 +22,7 @@ restartdemo: clean
 	rm -rf runs
 	rm -f paper.pdf
 	rm -f probfig.png
-	git checkout firstplot
+	git checkout no_options
 
 makeplot:
 	git checkout main
