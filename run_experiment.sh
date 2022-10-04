@@ -1,6 +1,9 @@
 #!/bin/bash
+## ^ specified that this is a bash script.
+## only needed if you chmod +x and invoke as ./scriptname rather than bash scriptname
 
-# get the current time
+
+# get the current time. $(command) will store the output of command as a variable
 TIMESTAMP=$(date +%m-%d-%Y_%H-%M-%S)
 
 # First argument provided by the user is a "TAG" value
