@@ -50,20 +50,30 @@ def miller_rabin_prime_test(n, k=5):
         a = int(random.randrange(2, n-1)) # choose random number mod n other than 1 or -1.
         x = pow(a, s, n) # raise to s^th power mod n.
         # By LaGrange theorem, we now have x^(2^r) = 1 mod n.
-        # Thus, x^(2^k) is a square root of n for some k <= r
+        # Thus, x^(2^(r-1)) is a square root of 1 mod n.
+        # If x^(2^(r-1)) is still 1 mod n, then x^(2^(r-2)) is also a square root of 1 mod n.
+        # Continuing in this way, we can keep decreasing the exponentent until we find
+        # the largest i such that x^(2^i) is NOT 1 mod n (sucha i must exist  if x!=1).
+        # This will then be a square root of 1  mod n that is not 1. If it's also not -1,
+        # then n must not be prime.
 
         if x == 1 or x == n - 1:
             continue # x is already -1 or 1, didn't find a new square root.
 
-        # find smallest k such that x^(2^k) is a square root of n.
-        for _ in range(r - 1):
-            x = pow(x, 2, n)
-            if x == n - 1:
+        # find smallest i such that x^(2^i) is a square root of n.
+        x_2_i = x
+        for i in range(r - 1):
+            # x^(2^i) = (x^(2^(i-1)))^2
+            x_2_i = pow(x_2_i, 2, n)
+            if x_2_i == n - 1:
+                #  x^(2^i) = -1 mod n, so we didn't find a square of 1 different
+                # from 1  or -1.
                 break
-            if x == 1:
-                # x wasn't 1 or -1, but when squared was 1!
+            if x_2_i == 1:
+                # x^(2^(i-1)) wasn't 1 or -1, but when squared was it was 1!
                 return False
         else:
+            # this block is not executed if we "break" the for loop early.
             # at this point x should be a^(s * 2^(r-1)), which is a square root of 1, and is not -1 or 1.
             return False
     return True
