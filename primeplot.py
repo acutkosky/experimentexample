@@ -40,7 +40,7 @@ def miller_rabin_prime_test(n, k=5):
     for _ in range(k):
         # We try the following procedure k times.
         # Due to some beautiful number theory, if n is not prime it will
-        # detect this with probability at least 1/2.
+        # detect this with probability at least 1/4.
 
         # The central observation is that n is prime if and only if
         # the only square roots of 1 mod n are 1 and -1.
