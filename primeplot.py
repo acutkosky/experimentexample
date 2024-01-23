@@ -13,7 +13,7 @@ def miller_rabin_prime_test(n, k=5):
     Uses miller-rabin randomized primality test to compute if n is prime.
     Will never have a false negative (if it says n is not prime, then it is not)
     Will have a false positive with probabilty at most 4^-k
-    So with k=10, we have <1000 correct answers for every mistake.
+    So with k=5, we have <1000 correct answers for every mistake.
     '''
     n = int(n)
     # 2 and 3 are prime
