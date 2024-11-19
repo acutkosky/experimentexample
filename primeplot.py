@@ -2,7 +2,7 @@ import numpy as np
 import random
 import os
 from matplotlib import pyplot as plt
-
+print("woah")
 import argparse
 parser = argparse.ArgumentParser(description='Plot density of primes.')
 parser.add_argument('--output_path', '-o', default='./', help='where to store outputs')
